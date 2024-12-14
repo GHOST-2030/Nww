@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بطاقة تهنئة القيادة الرشيدة</title>
+    <style>
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('path-to-font.ttf'); /* ضع هنا مسار الخط المستخدم */
+        }
+        body {
+            font-family: 'CustomFont', Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card {
+            position: relative;
+            margin-top: 20px;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .overlay {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .name, .school {
+            color: white;
+            font-size: 14px; /* حجم متوسط إلى صغير */
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* تأثير الظل */
+        }
+        .name {
+            text-align: right;
+        }
+        .school {
+            text-align: left;
+        }
+        .credits {
+            position: absolute;
+            top: 10px; /* الموضع العلوي */
+            left: 10px; /* الموضع إلى اليسار */
+            color: white; /* لون النص */
+            font-size: 10px; /* حجم صغير */
+            font-weight: bold; /* جعل النص بارزًا */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* إضافة ظل للنص */
+            opacity: 0.8; /* تقليل حدة النص */
+            line-height: 1.4; /* تحسين المسافات بين الأسطر */
+            text-align: left;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>بطاقة تهنئة القيادة الرشيدة باستضافة كأس العالم 2034</h2>
+        <form id="cardForm">
+            <div class="form-group">
+                <label for="name">الاسم</label>
+                <input type="text" id="name" placeholder="اكتب اسمك">
+            </div>
+            <div class="form-group">
+                <label for="school">المدرسة</label>
+                <input type="text" id="school" placeholder="اكتب اسم المدرسة">
+            </div>
+            <button type="button" onclick="generateCard()">عرض البطاقة</button>
+        </form>
+
+        <div class="card" id="card" style="display: none;">
+            <img src="image.jpeg" alt="بطاقة تهنئة">
+            <div class="overlay">
+                <div class="name" id="cardName"></div>
+                <div class="school" id="cardSchool"></div>
+            </div>
+            <div class="credits">
+                © جميع الحقوق محفوظة - مدرسة ثانوية اليرموك<br>
+         
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateCard() {
+            const name = document.getElementById('name').value;
+            const school = document.getElementById('school').value;
+
+            if (name && school) {
+                document.getElementById('cardName').textContent = "الاسم: " + name;
+                document.getElementById('cardSchool').textContent = "المدرسة: " + school;
+
+                document.getElementById('card').style.display = 'block';
+            } else {
+                alert('يرجى إدخال الاسم واسم المدرسة');
+            }
+        }
+    </script>
+</body>
+</html>
